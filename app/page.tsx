@@ -865,6 +865,144 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ROADMAP */}
+        <section className="relative mt-24">
+          <h2 className="font-[family-name:var(--font-display)] max-w-3xl text-[26px] font-light leading-[1.28] tracking-[-0.015em] sm:text-[32px]">
+            <span className="text-[#B9A6FF]">Don&apos;t build all this stuff yourself. </span>
+            <span className="text-white">Coherence</span>
+            <br />
+            <span className="text-white">gets infrastructure work off your roadmap.</span>
+          </h2>
+
+          <div className="relative mt-8 overflow-hidden rounded-xl border border-white/10 bg-[#0a0a13]">
+            {/* month header */}
+            <div className="grid grid-cols-[110px_repeat(5,1fr)] border-b border-white/[0.07] text-[10px] uppercase tracking-[0.12em] text-white/35 sm:grid-cols-[150px_repeat(5,1fr)]">
+              <span />
+              {["January", "February", "March", "April", "May"].map((m) => (
+                <span key={m} className="border-l border-dashed border-white/[0.07] px-3 py-3">{m}</span>
+              ))}
+            </div>
+            {[
+              { label: "Infra as code", pills: [
+                { t: "Infra-as-code for staging", c: "col-start-2 col-span-2" },
+                { t: "Per environment templates", c: "col-start-5 col-span-1" },
+                { t: "Infra-as-code for CI/CD", c: "col-start-6 col-span-1" },
+              ]},
+              { label: "CI/CD", pills: [
+                { t: "Build/deploy pipeline", c: "col-start-2 col-span-2" },
+                { t: "Tests", c: "col-start-4 col-span-1" },
+                { t: "Integration tests", c: "col-start-5 col-span-1" },
+                { t: "Templates for new apps", c: "col-start-6 col-span-1" },
+              ]},
+              { label: "Environments", pills: [
+                { t: "Setup doc", c: "col-start-3 col-span-1" },
+                { t: "Setup script", c: "col-start-4 col-span-1" },
+                { t: "Automated Docker setup", c: "col-start-5 col-span-1" },
+                { t: "Cloud IDE configuration", c: "col-start-6 col-span-1" },
+              ]},
+              { label: "Dashboard", pills: [
+                { t: "Multi-env pipeline viewer", c: "col-start-5 col-span-1" },
+                { t: "Service catalog", c: "col-start-6 col-span-1" },
+              ]},
+            ].map((row) => (
+              <div key={row.label} className="grid grid-cols-[110px_repeat(5,1fr)] border-b border-white/[0.05] sm:grid-cols-[150px_repeat(5,1fr)]">
+                <span className="px-4 py-3.5 text-[12px] text-white/70">{row.label}</span>
+                <div className="col-span-5 grid grid-cols-5 gap-2 p-2.5">
+                  {row.pills.map((p) => (
+                    <span key={p.t} className={`truncate rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-2 font-mono text-[10.5px] text-white/65 ${p.c}`}>
+                      {p.t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+            {/* bottom timeline */}
+            <div className="relative grid grid-cols-[110px_repeat(5,1fr)] items-stretch bg-gradient-to-r from-[#7c5cf0]/25 via-[#7c5cf0]/10 to-transparent sm:grid-cols-[150px_repeat(5,1fr)]">
+              <span className="border border-[#8b7cff]/50 bg-[#1a1440]/60 px-3 py-3 text-[12px] text-white">Make your app great</span>
+              <span className="border-y border-r border-white/10 px-3 py-3 font-mono text-[11px] text-white/70">Get Coherence</span>
+              <span className="relative col-span-4 border-y border-white/10">
+                <span className="absolute left-[12%] top-1/2 -translate-y-1/2 text-[12px] text-white drop-shadow-[0_0_6px_white]">✦</span>
+                <span className="absolute left-[38%] top-[15%] text-[15px] text-white drop-shadow-[0_0_8px_white]">✦</span>
+                <span className="absolute left-[44%] top-[70%] text-[11px] text-white drop-shadow-[0_0_6px_white]">✦</span>
+                <span className="absolute right-[8%] top-1/2 -translate-y-1/2 text-[14px] text-white drop-shadow-[0_0_8px_white]">✦</span>
+              </span>
+            </div>
+            {/* stickers */}
+            <div className="pointer-events-none absolute left-[38%] top-[34%] -rotate-[8deg] rounded-lg bg-[#d9f99d] px-4 py-2.5 text-[15px] font-semibold leading-tight text-black shadow-xl">
+              1,000+ dev hours of<br />undifferentiated work
+            </div>
+            <div className="pointer-events-none absolute bottom-[16%] right-[22%] rotate-[8deg] rounded-lg bg-[#7c5cf0] px-4 py-2.5 text-[15px] font-semibold leading-tight text-white shadow-xl">
+              Vs. spending time on<br />your actual product
+            </div>
+          </div>
+
+          {/* features */}
+          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: "◈", t: "Secure", d: "Configure your infrastructure in your own cloud, using best practices, automatically" },
+              { icon: "◎", t: "Compliant", d: "Get an audit trail of your SDLC from requirements, to development, to testing & deployment." },
+              { icon: "</>", t: "Developer-native", d: "Builds and deployments are surfaced intuitively, empowering your team regardless of DevOps experience." },
+              { icon: "⤢", t: "Scalable", d: "Coherence makes sure your cloud is there for your users, and that you are avoiding surprise costs from automation." },
+              { icon: "▤", t: "No Lock-in", d: "You can cut off Coherence's access at any time — your infrastructure remains safe in your own cloud." },
+              { icon: "◍", t: "Cost-effective", d: "You get back engineering time and optimize your cloud deployments to lower your spend." },
+            ].map((f) => (
+              <div key={f.t}>
+                <span className="grid h-8 w-8 place-items-center rounded-md border border-white/10 bg-white/[0.03] text-[13px] text-[#B9A6FF]">{f.icon}</span>
+                <p className="mt-3 text-[14px] font-medium text-white">{f.t}</p>
+                <p className="mt-1.5 max-w-xs text-[13px] font-light leading-[1.65] text-white/50">{f.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FOOTER CTA */}
+        <footer className="relative mt-28 border-t border-white/[0.07] pt-14">
+          <h2 className="font-[family-name:var(--font-display)] max-w-3xl text-[30px] font-light leading-[1.2] tracking-[-0.02em] sm:text-[42px]">
+            <span className="text-[#B9A6FF]">Get back to building your product.</span>
+            <br />
+            <span className="text-white">Let Coherence handle the rest.</span>
+          </h2>
+          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <a
+              href="#"
+              className="rounded-[6px] bg-[#F4F4F6] px-4 py-2 text-[13px] font-medium text-black hover:bg-white"
+            >
+              Try a sandbox
+            </a>
+            <a
+              href="#"
+              className="flex items-center gap-3 rounded-[8px] border border-white/[0.18] bg-[#0d0d18] px-3 py-2 text-[14px] font-medium text-[#EDEDF2] hover:bg-white/[0.06]"
+            >
+              <span className="flex items-center gap-1.5 rounded-[6px] border border-white/20 bg-black/50 px-2 py-1.5">
+                <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden>
+                  <rect x="0.75" y="0.75" width="16.5" height="10.5" rx="3" stroke="white" strokeOpacity="0.75" strokeWidth="1.2" />
+                  <path d="M7.5 3.4v5.2L12 6 7.5 3.4z" fill="white" fillOpacity="0.9" />
+                </svg>
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden>
+                  <circle cx="5.5" cy="5.5" r="4.4" stroke="white" strokeOpacity="0.65" strokeWidth="1.2" />
+                  <circle cx="5.5" cy="5.5" r="1.3" fill="white" fillOpacity="0.85" />
+                </svg>
+              </span>
+              Watch the demo
+            </a>
+          </div>
+          <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-white/[0.06] py-6 text-[11px] text-white/35">
+            <span>© 2022 Coherence Technologies</span>
+            <div className="flex items-center gap-4">
+              <a href="#" className="hover:text-white" aria-label="LinkedIn">
+                <span className="grid h-5 w-5 place-items-center rounded border border-white/15 text-[10px]">in</span>
+              </a>
+              <a href="#" className="hover:text-white" aria-label="Twitter">
+                <span className="text-[12px]">𝕏</span>
+              </a>
+              <a href="#" className="hover:text-white">Blog</a>
+              <a href="#" className="hover:text-white">Jobs</a>
+              <a href="#" className="hover:text-white">Terms of Use</a>
+              <a href="#" className="hover:text-white">Privacy Policy</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </main>
   );
