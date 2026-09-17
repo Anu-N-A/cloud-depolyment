@@ -1,23 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #06060f;
+  --background: #0C0A10;
   --foreground: #ededed;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-system, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 html,
 body {
-  background: #06060f;
+  background: #0C0A10;
   color: #ededed;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-system, system-ui, -apple-system,
+    Segoe UI, Roboto, Arial, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100%;
+}
+
+::selection {
+  background: rgba(139, 124, 255, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0A10;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a3d;
+  border-radius: 8px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee-slow {
+  animation-duration: 60s;
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+.mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
 }
