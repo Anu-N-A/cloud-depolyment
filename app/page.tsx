@@ -42,7 +42,7 @@ export default function Home() {
               <a href="#" className="hover:text-white">Docs</a>
               <a href="#" className="hover:text-white">Login</a>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-2 sm:flex">
             <a
               href="#"
               className="rounded-[6px] border border-[#8b7cff]/60 px-3 py-1.5 text-white/85 hover:bg-white/10"
@@ -56,12 +56,28 @@ export default function Home() {
               Book a demo
             </a>
             </div>
+            <details className="relative sm:hidden">
+              <summary className="grid h-9 w-9 cursor-pointer list-none place-items-center rounded-[6px] border border-white/15 text-white/80 [&::-webkit-details-marker]:hidden" aria-label="Menu">
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden>
+                  <path d="M1 1h14M1 6h14M1 11h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </summary>
+              <div className="absolute right-0 top-11 z-50 flex w-48 flex-col gap-1 rounded-xl border border-white/10 bg-[#12121c] p-2 text-[13px] shadow-2xl">
+                <a href="#" className="rounded-md px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white">Features</a>
+                <a href="#" className="rounded-md px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white">Pricing</a>
+                <a href="#" className="rounded-md px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white">Docs</a>
+                <a href="#" className="rounded-md px-3 py-2 text-white/70 hover:bg-white/5 hover:text-white">Login</a>
+                <div className="my-1 h-px bg-white/10" />
+                <a href="#" className="rounded-md border border-[#8b7cff]/60 px-3 py-2 text-center text-white/85">Create an app</a>
+                <a href="#" className="rounded-md bg-white px-3 py-2 text-center font-medium text-black">Book a demo</a>
+              </div>
+            </details>
           </div>
         </nav>
 
         {/* HERO */}
         <section className="pt-10 text-left sm:pt-14">
-          <h1 className="font-[family-name:var(--font-display)] text-[52px] font-normal leading-[1.04] tracking-[-0.035em] sm:text-[68px]">
+          <h1 className="font-[family-name:var(--font-display)] text-[clamp(2.4rem,10.5vw,3.25rem)] font-normal leading-[1.04] tracking-[-0.035em] sm:text-[68px]">
             <span className="text-[#B9A6FF]">Easy-mode</span>{" "}
             <span className="text-[#EDEDF2]">for</span>
             <br />
@@ -131,16 +147,16 @@ export default function Home() {
             </span>{" "}
             account. More power, less hassle.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-col items-stretch gap-3 min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:items-center">
             <a
               href="#"
-              className="rounded-[6px] bg-[#F4F4F6] px-4 py-2 text-[13px] font-medium text-black hover:bg-white"
+              className="rounded-[6px] bg-[#F4F4F6] px-4 py-2.5 text-center text-[13px] font-medium text-black hover:bg-white min-[480px]:py-2"
             >
               Try a sandbox
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 rounded-[8px] border border-white/[0.18] bg-[#0d0d18] px-3 py-2 text-[14px] font-medium text-[#EDEDF2] hover:bg-white/[0.06]"
+              className="flex items-center justify-center gap-3 rounded-[8px] border border-white/[0.18] bg-[#0d0d18] px-3 py-2.5 text-[14px] font-medium text-[#EDEDF2] hover:bg-white/[0.06] min-[480px]:py-2"
             >
               <span className="flex items-center gap-1.5 rounded-[6px] border border-white/20 bg-black/50 px-2 py-1.5">
                 <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden>
@@ -157,39 +173,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* sparkle connector - little gap like reference */}
-        <div className="relative mx-auto flex h-[92px] w-[220px] items-center justify-center py-2" aria-hidden>
-          {/* faint side arcs */}
-          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 220 92" fill="none">
-            <path
-              d="M20 0 Q110 34 200 0"
-              stroke="white"
-              strokeOpacity="0.12"
-              strokeWidth="1"
-            />
-            <path
-              d="M28 8 Q110 42 192 8"
-              stroke="white"
-              strokeOpacity="0.08"
-              strokeWidth="1"
-            />
-          </svg>
-          {/* center dotted line */}
-          <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/15 to-transparent" />
-          <span className="relative flex flex-col items-center gap-[9px]">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <span key={i} className="relative grid place-items-center">
-                <span className="absolute h-6 w-6 rounded-full border border-dotted border-white/20" />
-                <span className="text-[13px] leading-none text-white drop-shadow-[0_0_7px_rgba(255,255,255,0.95)]">
-                  ✦
-                </span>
-              </span>
-            ))}
-          </span>
-        </div>
-
         {/* DASHBOARD MOCK - framed like reference */}
-        <div className="mx-auto w-full max-w-[1320px] rounded-[24px] border border-white/20 border-t-[3px] border-t-white/30 bg-black p-4 shadow-[0_0_90px_rgba(124,58,237,0.18)] sm:p-6">
+        <div className="mx-auto mt-10 w-full max-w-[1320px] rounded-[24px] border border-white/20 border-t-[3px] border-t-white/30 bg-black p-4 shadow-[0_0_90px_rgba(124,58,237,0.18)] sm:p-6">
           {/* top highlight */}
           <div className="pointer-events-none relative">
             <div className="absolute -top-[10px] left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
@@ -243,7 +228,7 @@ export default function Home() {
                   <span className="absolute right-4 top-4 grid h-7 w-7 place-items-center rounded-md border border-white/10 text-white/40">
                     •••
                   </span>
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 gap-3 min-[480px]:grid-cols-3 min-[480px]:gap-4">
                     <div>
                       <p className="text-[13px] text-white/45">Builds this week</p>
                       <p className="mt-2 text-[26px] font-light tracking-tight text-white">
@@ -650,84 +635,94 @@ export default function Home() {
             <span className="text-white">supporting, or maintaining it.</span>
           </h2>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid items-stretch gap-5 md:auto-rows-fr md:grid-cols-2">
             {/* card 1 */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] p-6">
-              <p className="text-[15px] leading-[1.6]">
-                <span className="font-medium text-white">Ephemeral preview environments </span>
-                <span className="font-light text-white/50">
-                  created with every PR. Collaborate with frontend and backend
-                  support, custom domains, and more.
-                </span>
+            <div className="flex flex-col overflow-hidden rounded-lg border border-white/[0.07] bg-[#1b1b26] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+              <p className="text-[13px] font-medium leading-[1.6] text-white">
+                Ephemeral preview environments
               </p>
-              <a href="#" className="mt-2 block text-[12px] text-white/45 hover:text-white">
+              <p className="mt-1 text-[13px] font-light leading-[1.6] text-white/45">
+                created with every PR. Collaborate with
+                <br />
+                frontend and backend support, custom
+                <br />
+                domains, and more.
+              </p>
+              <a href="#" className="mb-3 mt-2 block text-[11px] font-light text-[#a78bfa] hover:text-white">
                 Learn more ↗
               </a>
-              <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-[#0a0a14]">
-                <div className="flex items-center gap-2 border-b border-white/[0.07] px-4 py-3">
-                  <span className="grid h-6 w-6 grid-cols-3 place-items-center gap-[2px] text-[4px] text-white">
-                    <span>●</span><span>●</span><span>●</span>
-                    <span>●</span><span>●</span><span>●</span>
-                    <span>●</span><span>●</span><span>●</span>
-                  </span>
-                  <p className="text-[12px] text-white/80">
+              <div className="mt-auto flex items-start gap-2 -mr-5">
+                <span className="h-9 w-9 shrink-0 overflow-hidden rounded-md bg-black" aria-hidden>
+                  <img src="/logo.svg.png" alt="" className="h-9 w-auto max-w-none" />
+                </span>
+                <div className="min-w-0 flex-1 overflow-hidden rounded-l-lg rounded-r-none border border-r-0 border-white/[0.07] bg-[#0c0c13] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+                <div className="border-b border-white/[0.06] px-3.5 py-2.5">
+                  <p className="text-[12px] text-white">
                     Coherence{" "}
-                    <span className="rounded border border-white/15 px-1 text-[10px] text-white/50">bot</span>{" "}
-                    <span className="text-white/40">commented now</span>
+                    <span className="rounded-full border border-white/20 px-1.5 py-px text-[9px] font-light text-white/55">bot</span>{" "}
+                    <span className="font-light text-white/40">commented now</span>
                   </p>
                 </div>
-                <div className="space-y-2 px-4 py-3 text-[11px] leading-relaxed">
-                  <p className="text-white/60">Your preview is live at:</p>
-                  <p className="break-all font-mono text-[10.5px] text-white/75">
+                <div className="space-y-2 bg-black/50 px-4 py-3 text-[11px] leading-relaxed">
+                  <p className="text-white/80">Your preview is live at:</p>
+                  <p className="truncate font-mono text-[10px] text-[#b7a6f5]">
                     https://gh-build-pipeline-ui-control-plane-review.coherencesites.cc
                   </p>
-                  <p className="pt-1 text-white/60">Last build pipeline:</p>
-                  <p className="flex items-center gap-1.5 text-white/75">
-                    <span className="grid h-3.5 w-3.5 place-items-center rounded-[4px] bg-emerald-500/90 text-[9px] text-black">✓</span>
-                    Test link
+                  <p className="pt-1.5 text-white/80">Last build pipeline:</p>
+                  <p className="flex items-center gap-1.5 text-white/80">
+                    <span className="grid h-3.5 w-3.5 place-items-center rounded bg-emerald-400/90 text-[9px] font-bold text-black">✓</span>
+                    Test <span className="text-[#a78bfa]">link</span>
                   </p>
-                  <p className="flex items-center gap-1.5 text-white/75">
-                    <span className="grid h-3.5 w-3.5 place-items-center rounded-[4px] bg-emerald-500/90 text-[9px] text-black">✓</span>
-                    Deploy link
+                  <p className="flex items-center gap-1.5 text-white/80">
+                    <span className="grid h-3.5 w-3.5 place-items-center rounded bg-emerald-400/90 text-[9px] font-bold text-black">✓</span>
+                    Deploy <span className="text-[#a78bfa]">link</span>
                   </p>
+                </div>
                 </div>
               </div>
             </div>
 
             {/* card 2 */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] p-6">
-              <p className="text-[15px] leading-[1.6]">
-                <span className="font-medium text-white">Automated terraform </span>
-                <span className="font-light text-white/50">
-                  does the heavy lifting for you. One simple yaml file
-                  continuously configures your infrastructure as code with
-                  cloud native services.
-                </span>
+            <div className="flex flex-col overflow-hidden rounded-lg border border-white/[0.07] bg-[#1b1b26] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+              <p className="text-[13px] font-medium leading-[1.6] text-white">
+                Automated terraform
               </p>
-              <a href="#" className="mt-2 block text-[12px] text-white/45 hover:text-white">
+              <p className="mt-1 text-[13px] font-light leading-[1.6] text-white/45">
+                does the heavy
+                <br />
+                lifting for you. One simple yaml file
+                <br />
+                continuously configures your
+                <br />
+                infrastructure as code with cloud native
+                <br />
+                services.
+              </p>
+              <a href="#" className="mb-3 mt-2 block text-[11px] font-light text-[#a78bfa] hover:text-white">
                 Learn more ↗
               </a>
-              <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-[#0a0a14] p-4 font-mono text-[10.5px] leading-[1.9]">
-                <p className="flex items-center gap-1.5 text-white/80">
+              <div className="mt-auto overflow-hidden rounded-t-lg rounded-b-none border border-b-0 border-white/[0.07] bg-[#0c0c13] p-3.5 font-mono text-[10px] leading-[1.8] shadow-[0_10px_35px_rgba(0,0,0,0.5)] -mb-5">
+                <p className="flex items-center gap-1.5 text-white/85">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#2dd4bf]" />
-                  Successful <span className="text-white/40">after 43s (15 min ago)</span>
+                  Successful <span className="font-sans font-light text-white/40">after 43s (15 min ago)</span>
                 </p>
-                <p className="mt-3 text-[10px] uppercase tracking-wider text-white/35">Environments</p>
-                <p className="mt-1 rounded bg-[#2dd4bf]/15 px-2 py-0.5 text-[#5eead4]">
-                  <span className="text-white/40">▸</span> jj-worker-config
+                <p className="mt-2.5 font-sans text-[9px] uppercase tracking-[0.1em] text-white/40">Environments</p>
+                <p className="mt-1 rounded bg-gradient-to-r from-[#134e4a]/70 to-[#134e4a]/10 px-2 py-0.5 text-[#5eead4]">
+                  <span className="mr-1 text-[9px]">+</span>jj-worker-config
                 </p>
-                <p className="mt-2 text-[10px] uppercase tracking-wider text-white/35">Resources</p>
-                <div className="mt-1 space-y-1 text-emerald-200/80">
+                <p className="mt-2 font-sans text-[9px] uppercase tracking-[0.1em] text-white/40">Resources</p>
+                <div className="mt-1 space-y-1">
                   {[
-                    "aws_acm_certificate: jj-worker-config",
-                    "aws_region-ssl-cert: jj-worker-config",
-                    "aws_route53_zone: jj-worker-config_zone",
-                    "aws_ecs_cluster: jj-worker-config_cluster",
-                    "aws_s3_bucket: jj-worker-config_cluster_source",
+                    "aws-acm-certificate: jj-worker-config",
+                    "aws-region-ssl-cert: jj-worker-config",
+                    "aws-route53_zone: jj-worker-config_zone",
+                    "aws-ecs_cluster: jj-worker-config_cluster",
+                    "aws-s3_bucket: jj-worker-config_cluster_source",
                   ].map((r) => (
-                    <p key={r} className="truncate rounded bg-emerald-500/[0.07] px-2 py-0.5">
-                      <span className="text-emerald-400">▾ {r.split(":")[0]}:</span>
-                      <span className="text-white/55">{r.split(":")[1]}</span>
+                    <p key={r} className="truncate rounded bg-gradient-to-r from-[#134e4a]/45 to-[#134e4a]/5 px-2 py-0.5">
+                      <span className="mr-1 text-[9px] text-[#2dd4bf]">+</span>
+                      <span className="text-[#99f6e4]/90">{r.split(":")[0]}:</span>
+                      <span className="text-white/50">{r.split(":")[1]}</span>
                     </p>
                   ))}
                 </div>
@@ -735,77 +730,100 @@ export default function Home() {
             </div>
 
             {/* card 3 */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] p-6">
-              <p className="text-[15px] leading-[1.6]">
-                <span className="font-medium text-white">Managed CI/CD </span>
-                <span className="font-light text-white/50">
-                  offers configurable pipelines with database seeding,
-                  migrations, end-to-end tests, and parallelized unit tests.
-                </span>
+            <div className="flex flex-col overflow-hidden rounded-lg border border-white/[0.07] bg-[#1b1b26] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+              <p className="text-[13px] font-medium leading-[1.6] text-white">
+                Managed CI/CD
               </p>
-              <a href="#" className="mt-2 block text-[12px] text-white/45 hover:text-white">
+              <p className="mt-1 text-[13px] font-light leading-[1.6] text-white/45">
+                offers configurable
+                <br />
+                pipelines with database seeding,
+                <br />
+                migrations, end-to-end tests, and
+                <br />
+                parallelized unit tests.
+              </p>
+              <a href="#" className="mb-3 mt-2 block text-[11px] font-light text-[#a78bfa] hover:text-white">
                 Learn more ↗
               </a>
-              <div className="mt-5 overflow-hidden rounded-lg border border-white/10 bg-[#0a0a14] text-[11px]">
-                {[
-                  { dot: "bg-emerald-400", label: "BUILD", sub: "complete in 23s" },
-                  { dot: "bg-teal-300", label: "TEST", sub: "complete in 2m 3s" },
-                  { dot: "border border-amber-400", label: "DEPLOY", sub: "15s" },
-                ].map((r) => (
-                  <div key={r.label} className="flex items-center gap-2 border-b border-white/[0.07] px-4 py-2.5">
-                    <span className={`h-2 w-2 rounded-full ${r.dot}`} />
-                    <span className="font-semibold text-white/85">{r.label}</span>
-                    <span className="text-white/40">{r.sub}</span>
+              <div className="mt-auto flex flex-col gap-[2px] -mb-5">
+                <div className="flex items-center gap-2 rounded-[6px] border border-white/[0.07] bg-[#0c0c13] px-4 py-2 text-[11px] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+                  <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-emerald-400/90 text-[8px] font-bold text-black">✓</span>
+                  <span className="font-semibold text-white/85">BUILD</span>
+                  <span className="font-light text-white/40">complete in 23s</span>
+                </div>
+                <div className="flex items-center gap-2 rounded-[6px] border border-white/[0.07] bg-[#0c0c13] px-4 py-2 text-[11px] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+                  <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-emerald-400/90 text-[8px] font-bold text-black">✓</span>
+                  <span className="font-semibold text-white/85">TEST</span>
+                  <span className="font-light text-white/40">complete in 2m 3s</span>
+                </div>
+                <div className="rounded-[6px] border border-white/[0.07] bg-[#0c0c13] text-[11px] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+                  <div className="flex items-center gap-2 px-4 py-2">
+                    <span className="grid h-3.5 w-3.5 place-items-center rounded-full border border-dotted border-amber-400 text-[8px] text-amber-400">◌</span>
+                    <span className="font-semibold text-white/85">DEPLOY</span>
+                    <span className="font-light text-white/40">15s</span>
                   </div>
-                ))}
-                <div className="space-y-2 px-4 py-3">
-                  <p className="flex items-center gap-2 text-white/70">
-                    <span className="h-2 w-2 rounded-full bg-teal-300" />
-                    frontend-service <span className="text-white/35">15s</span>
-                    <span className="ml-auto rounded border border-white/10 px-1.5 py-0.5 text-[10px] text-white/45">Logs</span>
-                  </p>
-                  <p className="flex items-center gap-2 text-white/70">
-                    <span className="h-2 w-2 rounded-full border border-amber-400" />
-                    backend-service <span className="text-white/35">15s</span>
-                    <span className="ml-auto rounded border border-white/10 px-1.5 py-0.5 text-[10px] text-white/45">Logs</span>
-                  </p>
+                  <div className="space-y-1.5 px-4 py-2 pl-10">
+                    <p className="flex items-center gap-2 text-white/70">
+                      <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-teal-400/90 text-[8px] font-bold text-black">✓</span>
+                      frontend-service <span className="font-light text-white/35">15s</span>
+                      <span className="text-[10px] font-light text-white/45">Logs</span>
+                    </p>
+                    <p className="flex items-center gap-2 text-white/70">
+                      <span className="grid h-3.5 w-3.5 place-items-center rounded-full border border-dotted border-amber-400 text-[8px] text-amber-400">◌</span>
+                      backend-service <span className="font-light text-white/35">15s</span>
+                      <span className="text-[10px] font-light text-white/45">Logs</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* card 4 */}
-            <div className="overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] p-6">
-              <p className="text-[15px] leading-[1.6]">
-                <span className="font-medium text-white">Production deployments </span>
-                <span className="font-light text-white/50">
-                  are a click away. Rest assured, production lives in a
-                  separate cloud account and you control who has deploy access.
-                </span>
+            <div className="flex flex-col overflow-hidden rounded-lg border border-white/[0.07] bg-[#1b1b26] p-4 shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+              <p className="text-[13px] font-medium leading-[1.6] text-white">
+                Production deployments
               </p>
-              <a href="#" className="mt-2 block text-[12px] text-white/45 hover:text-white">
+              <p className="mt-1 text-[13px] font-light leading-[1.6] text-white/45">
+                are a click
+                <br />
+                away. Rest assured, production lives in
+                <br />
+                a separate cloud account and you
+                <br />
+                control who has deploy access.
+              </p>
+              <a href="#" className="mb-3 mt-2 block text-[11px] font-light text-[#a78bfa] hover:text-white">
                 Learn more ↗
               </a>
-              <div className="relative mt-5 overflow-hidden rounded-lg border border-white/10 bg-[#0a0a14] p-4 text-[11px]">
-                <div className="flex items-center gap-2">
-                  <span className="rounded bg-lime-200/90 px-1.5 py-0.5 text-[10px] font-semibold text-black">Deployed</span>
-                  <span className="rounded border border-white/10 px-1.5 py-0.5 text-white/40">⊣⊢ Release</span>
-                  <span className="ml-auto text-white/40">6m ago</span>
-                  <span className="rounded border border-white/10 px-1.5 text-white/40">•••</span>
-                </div>
-                <div className="absolute right-4 top-3 rounded-lg border border-white/10 bg-[#101018] p-1.5 shadow-xl">
-                  <p className="rounded bg-[#7c5cf0] px-3 py-1.5 text-center text-[11px] font-medium text-white">
+              <div className="relative -mb-5 -ml-5 mt-auto w-full lg:w-[70%]">
+                <div className="absolute -top-14 right-2 z-10 w-[170px] rounded-xl border border-white/10 bg-[#121219] p-1 shadow-2xl lg:-right-36">
+                  <p className="rounded-md bg-[#7c5cf0] px-2.5 py-1 text-center text-[10px] font-medium text-white">
                     Promote to Production
                   </p>
-                  <p className="px-3 py-1.5 text-center text-white/50">Promote to Staging</p>
+                  <p className="px-2.5 py-1 text-center text-[10px] text-white/55">Promote to Staging</p>
                 </div>
-                <div className="mt-4 space-y-2 text-white/45">
-                  <p className="flex items-center justify-between rounded border border-white/[0.07] px-3 py-2">
-                    completed in 23s <span>›</span>
+              <div className="overflow-hidden rounded-r-lg rounded-l-none rounded-b-none border border-b-0 border-l-0 border-white/[0.07] bg-[#0c0c13] text-[14px] shadow-[0_10px_35px_rgba(0,0,0,0.5)]">
+                <div className="flex items-center gap-2 border-b border-white/[0.06] bg-white/[0.03] px-4 py-2.5">
+                  <span className="rounded bg-lime-200/90 px-1.5 py-px text-[10px] font-semibold text-black">Deployed</span>
+                  <span className="rounded-md bg-white/[0.06] px-1.5 py-px font-mono text-[10px] text-white/55">⊣⊢ 9dsad3e</span>
+                  <span className="ml-auto flex shrink-0 items-center gap-1.5">
+                    <span className="font-light text-white/40">6m ago</span>
+                    <span className="rounded-md border border-white/15 bg-[#1a1a24] px-1.5 py-px text-white/60">•••</span>
+                  </span>
+                </div>
+                <div className="bg-black/30 text-[13px] font-light text-white/40">
+                  <div className="flex h-6 w-full items-center justify-end border-b border-white/[0.07] bg-white/[0.05] px-4" aria-hidden>
+                    <span className="text-[10px] text-white/30">▾</span>
+                  </div>
+                  <p className="flex items-center justify-between border-b border-white/[0.07] bg-white/[0.02] px-4 py-2.5">
+                    completed in 23s <span className="text-white/30">›</span>
                   </p>
-                  <p className="flex items-center justify-between rounded border border-white/[0.07] px-3 py-2">
-                    completed in 3m 12s <span>›</span>
+                  <p className="flex items-center justify-between px-4 py-2.5">
+                    completed in 3m 12s <span className="text-white/30">›</span>
                   </p>
                 </div>
+              </div>
               </div>
             </div>
           </div>
@@ -813,18 +831,23 @@ export default function Home() {
           {/* wide card: cloud development environments */}
           <div className="mt-5 grid overflow-hidden rounded-xl border border-white/10 bg-white/[0.025] md:grid-cols-[1fr_1.2fr]">
             <div className="p-6 sm:p-8">
-              <p className="text-[17px] leading-[1.55]">
-                <span className="font-medium text-white">Cloud development environments </span>
-                <span className="font-light text-white/50">
-                  let you run code in the browser for editing, reviewing, and
-                  experimenting with your codebase. One click and it just works.
-                </span>
+              <p className="text-[17px] font-medium leading-[1.55] text-white">
+                Cloud development environments
+              </p>
+              <p className="mt-1 text-[17px] font-light leading-[1.55] text-white/50">
+                let you
+                <br />
+                run code in the browser for editing,
+                <br />
+                reviewing, and experimenting with your
+                <br />
+                codebase. One click and it just works.
               </p>
               <a href="#" className="mt-3 block text-[12px] text-[#B9A6FF] hover:text-white">
                 Learn more ↗
               </a>
             </div>
-            <div className="overflow-hidden border-t border-white/10 bg-[#0a0a14] md:border-l md:border-t-0">
+            <div className="overflow-hidden border-t border-white/10 bg-[#0a0a14] md:ml-0 md:mt-6 md:rounded-tl-xl md:border-l md:border-t md:border-t-white/10">
               <div className="flex items-center gap-3 border-b border-white/[0.07] px-4 py-2.5 text-[11px]">
                 <span className="text-white/40">←</span>
                 <span className="flex items-center gap-1.5 rounded bg-white/[0.06] px-2 py-1 font-mono text-white/70">
@@ -834,8 +857,8 @@ export default function Home() {
                   <span className="h-1.5 w-1.5 rounded-full bg-blue-400" /> Running
                 </span>
               </div>
-              <div className="grid grid-cols-[130px_1fr] text-[10px] leading-[1.9]">
-                <div className="border-r border-white/[0.07] p-3 font-mono text-white/50">
+              <div className="grid grid-cols-1 text-[10px] leading-[1.9] min-[560px]:grid-cols-[130px_1fr]">
+                <div className="hidden border-r border-white/[0.07] p-3 font-mono text-white/50 min-[560px]:block">
                   <p className="mb-1 text-[9px] uppercase tracking-wider text-white/30">Explorer</p>
                   {["pokemon-tester-playground", "hello.ts", "index.ts", "package.json", "readme.md", "src", "out-app", "launch", "lexica"].map((f) => (
                     <p key={f} className="truncate">
@@ -867,7 +890,7 @@ export default function Home() {
         </section>
 
         {/* ROADMAP */}
-        <section className="relative mt-24">
+        <section className="relative mt-36">
           <h2 className="font-[family-name:var(--font-display)] max-w-3xl text-[26px] font-light leading-[1.28] tracking-[-0.015em] sm:text-[32px]">
             <span className="text-[#B9A6FF]">Don&apos;t build all this stuff yourself. </span>
             <span className="text-white">Coherence</span>
@@ -876,6 +899,8 @@ export default function Home() {
           </h2>
 
           <div className="relative mt-8 overflow-hidden rounded-xl border border-white/10 bg-[#0a0a13]">
+            <div className="overflow-x-auto">
+            <div className="min-w-[760px]">
             {/* month header */}
             <div className="grid grid-cols-[110px_repeat(5,1fr)] border-b border-white/[0.07] text-[10px] uppercase tracking-[0.12em] text-white/35 sm:grid-cols-[150px_repeat(5,1fr)]">
               <span />
@@ -928,27 +953,35 @@ export default function Home() {
                 <span className="absolute right-[8%] top-1/2 -translate-y-1/2 text-[14px] text-white drop-shadow-[0_0_8px_white]">✦</span>
               </span>
             </div>
+            </div>
+            </div>
             {/* stickers */}
-            <div className="pointer-events-none absolute left-[38%] top-[34%] -rotate-[8deg] rounded-lg bg-[#d9f99d] px-4 py-2.5 text-[15px] font-semibold leading-tight text-black shadow-xl">
+            <div className="pointer-events-none absolute left-[38%] top-[34%] -rotate-[8deg] rounded-lg bg-[#d9f99d] px-3 py-2 text-[11px] font-semibold leading-tight text-black shadow-xl sm:px-4 sm:py-2.5 sm:text-[15px]">
               1,000+ dev hours of<br />undifferentiated work
             </div>
-            <div className="pointer-events-none absolute bottom-[16%] right-[22%] rotate-[8deg] rounded-lg bg-[#7c5cf0] px-4 py-2.5 text-[15px] font-semibold leading-tight text-white shadow-xl">
+            <div className="pointer-events-none absolute bottom-[16%] right-[22%] rotate-[8deg] rounded-lg bg-[#7c5cf0] px-3 py-2 text-[11px] font-semibold leading-tight text-white shadow-xl sm:px-4 sm:py-2.5 sm:text-[15px]">
               Vs. spending time on<br />your actual product
             </div>
           </div>
 
           {/* features */}
-          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-24 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: "◈", t: "Secure", d: "Configure your infrastructure in your own cloud, using best practices, automatically" },
-              { icon: "◎", t: "Compliant", d: "Get an audit trail of your SDLC from requirements, to development, to testing & deployment." },
-              { icon: "</>", t: "Developer-native", d: "Builds and deployments are surfaced intuitively, empowering your team regardless of DevOps experience." },
-              { icon: "⤢", t: "Scalable", d: "Coherence makes sure your cloud is there for your users, and that you are avoiding surprise costs from automation." },
-              { icon: "▤", t: "No Lock-in", d: "You can cut off Coherence's access at any time — your infrastructure remains safe in your own cloud." },
-              { icon: "◍", t: "Cost-effective", d: "You get back engineering time and optimize your cloud deployments to lower your spend." },
+              { t: "Secure", d: "Configure your infrastructure in your own cloud, using best practices, automatically",
+                icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3.5" y="7" width="9" height="6.5" rx="1.2" stroke="#A5A3C7" strokeWidth="1.1" /><path d="M5.8 7V5.2a2.2 2.2 0 014.4 0V7" stroke="#A5A3C7" strokeWidth="1.1" /><circle cx="8" cy="10.2" r="0.9" fill="#A5A3C7" /></svg>) },
+              { t: "Compliant", d: "Get an audit trail of your SDLC from requirements, to development, to testing & deployment.",
+                icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.2" stroke="#A5A3C7" strokeWidth="1.1" /><path d="M10.2 10.2L13.8 13.8" stroke="#A5A3C7" strokeWidth="1.1" strokeLinecap="round" /></svg>) },
+              { t: "Developer-native", d: "Builds and deployments are surfaced intuitively, empowering your team regardless of DevOps experience.",
+                icon: (<svg width="17" height="16" viewBox="0 0 18 16" fill="none"><path d="M6.5 4.5L3 8l3.5 3.5M11.5 4.5L15 8l-3.5 3.5" stroke="#A5A3C7" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" /></svg>) },
+              { t: "Scalable", d: "Coherence makes sure your cloud is there for your users, and that you are avoiding surprise costs from automation.",
+                icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M9.5 2.8h3.7v3.7M13.2 2.8L8.8 7.2M6.5 13.2H2.8V9.5M2.8 13.2l4.4-4.4" stroke="#A5A3C7" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" /></svg>) },
+              { t: "No Lock-in", d: "You can cut off Coherence's access at any time — your infrastructure remains safe in your own cloud.",
+                icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.2" y="4" width="11.6" height="8.5" rx="1.2" stroke="#A5A3C7" strokeWidth="1.1" /><path d="M2.2 6.3h11.6" stroke="#A5A3C7" strokeWidth="1.1" /><path d="M4.5 10h2.6" stroke="#A5A3C7" strokeWidth="1.1" strokeLinecap="round" /></svg>) },
+              { t: "Cost-effective", d: "You get back engineering time and optimize your cloud deployments to lower your spend.",
+                icon: (<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 13.5v-3M6.8 13.5V9.5M10.1 13.5V6.8M13.4 13.5V4" stroke="#A5A3C7" strokeWidth="1.1" strokeLinecap="round" /></svg>) },
             ].map((f) => (
               <div key={f.t}>
-                <span className="grid h-8 w-8 place-items-center rounded-md border border-white/10 bg-white/[0.03] text-[13px] text-[#B9A6FF]">{f.icon}</span>
+                <span className="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.03]">{f.icon}</span>
                 <p className="mt-3 text-[14px] font-medium text-white">{f.t}</p>
                 <p className="mt-1.5 max-w-xs text-[13px] font-light leading-[1.65] text-white/50">{f.d}</p>
               </div>
@@ -957,22 +990,22 @@ export default function Home() {
         </section>
 
         {/* FOOTER CTA */}
-        <footer className="relative mt-28 border-t border-white/[0.07] pt-14">
+        <footer className="relative mt-28 pt-14">
           <h2 className="font-[family-name:var(--font-display)] max-w-3xl text-[30px] font-light leading-[1.2] tracking-[-0.02em] sm:text-[42px]">
             <span className="text-[#B9A6FF]">Get back to building your product.</span>
             <br />
             <span className="text-white">Let Coherence handle the rest.</span>
           </h2>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-col items-stretch gap-3 min-[480px]:flex-row min-[480px]:flex-wrap min-[480px]:items-center">
             <a
               href="#"
-              className="rounded-[6px] bg-[#F4F4F6] px-4 py-2 text-[13px] font-medium text-black hover:bg-white"
+              className="rounded-[6px] bg-[#F4F4F6] px-4 py-2.5 text-center text-[13px] font-medium text-black hover:bg-white min-[480px]:py-2"
             >
               Try a sandbox
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 rounded-[8px] border border-white/[0.18] bg-[#0d0d18] px-3 py-2 text-[14px] font-medium text-[#EDEDF2] hover:bg-white/[0.06]"
+              className="flex items-center justify-center gap-3 rounded-[8px] border border-white/[0.18] bg-[#0d0d18] px-3 py-2.5 text-[14px] font-medium text-[#EDEDF2] hover:bg-white/[0.06] min-[480px]:py-2"
             >
               <span className="flex items-center gap-1.5 rounded-[6px] border border-white/20 bg-black/50 px-2 py-1.5">
                 <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden>
@@ -987,7 +1020,7 @@ export default function Home() {
               Watch the demo
             </a>
           </div>
-          <div className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-white/[0.06] py-6 text-[11px] text-white/35">
+          <div className="mt-14 flex flex-wrap items-center justify-between gap-4 py-6 text-[11px] text-white/35">
             <span>© 2022 Coherence Technologies</span>
             <div className="flex items-center gap-4">
               <a href="#" className="hover:text-white" aria-label="LinkedIn">
